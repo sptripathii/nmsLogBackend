@@ -1,6 +1,6 @@
 FROM maven:3.6.0-jdk-8 as build
 
-WORKDIR /opt/syslog-server
+WORKDIR /opt/nmslog-manager
 
 COPY . .
 
@@ -12,7 +12,7 @@ FROM java:openjdk-8-jre
 
 WORKDIR /opt
 
-COPY --from=build /opt/syslog-server/target/syslog-server.war .
+COPY --from=build /opt/nmslog-manager/target/nmslog-manager.war .
 
 EXPOSE 8080
 
