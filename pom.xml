@@ -13,7 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>nmsLogsManager</name>
 	<description>A project to manage all the syslogs events stored in DB</description>
-	<!--packaging>war</packaging> -->
+	<packaging>war</packaging>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
