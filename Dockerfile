@@ -8,12 +8,13 @@ RUN mvn compile -DskipTests=true \
 	&& mvn package -DskipTests=true
 
 
-FROM java:openjdk-8-jre
+FROM tomcat:latest
 
 WORKDIR /opt
 
-COPY --from=build /opt/nmslog-manager/target/nmslog-manager.war .
+RUN apt-get -y update
+
+COPY --from=build /opt/nmslog-manager/target/nmslog-manager.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
 
-CMD java -jar syslog-server.jar
