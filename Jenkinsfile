@@ -26,17 +26,17 @@ pipeline {
                 archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
             }
         }
-	      stage('Building image') {
-            echo 'Building docker image...'
+	stage('Building image') {
             steps{
+	       echo 'Building docker image...'	    
                script {
                   dockerImage = docker.build(registry, "./backend/")
                }
             }      
         } 
         stage('Deploy Image') {
-            echo 'Deploying docker image...'
              steps{
+	       echo 'Deploying docker image...'     
                 script {
                      docker.withRegistry( '', registryCredential ) {
                          dockerImage.push()
