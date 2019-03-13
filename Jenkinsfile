@@ -26,7 +26,8 @@ pipeline {
                 archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
             }
         }
-	stage('Building image') {
+	      stage('Building image') {
+            echo 'Building docker image...'
             steps{
                script {
                   dockerImage = docker.build(registry, "./backend/")
@@ -34,6 +35,7 @@ pipeline {
             }      
         } 
         stage('Deploy Image') {
+            echo 'Deploying docker image...'
              steps{
                 script {
                      docker.withRegistry( '', registryCredential ) {
@@ -43,3 +45,4 @@ pipeline {
              }
          }
     }	
+  }
