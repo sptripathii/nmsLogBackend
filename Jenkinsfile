@@ -4,6 +4,12 @@ pipeline {
     tools {
       maven 'maven_3_3_9'
     }
+	
+    environment {
+           registry = "sptripathii/be-test-image"
+           registryCredential = 'dockerhub'
+           dockerImage = ''
+    }
 
     stages {
         stage('Build') {
