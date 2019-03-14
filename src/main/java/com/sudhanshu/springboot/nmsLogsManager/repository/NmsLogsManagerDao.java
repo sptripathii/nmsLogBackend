@@ -60,7 +60,7 @@ public class NmsLogsManagerDao {
 		countEntity.setErrorCount(logRepo.countByType(ERROR));
 		countEntity.setWarnCount(logRepo.countByType(WARNING));
 		countEntity.setInfoCount(logRepo.countByType(INFO));
-		countEntity.setDebugCount((long) (2000*Math.random())); //Since debug is not set, setting some random number
+		countEntity.setDebugCount((long) (200*Math.random())); //Since debug is not set, setting some random number
 		
 		return countEntity;
 		
